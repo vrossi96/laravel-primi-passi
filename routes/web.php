@@ -14,5 +14,43 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+
+    $data = [
+        'pages' => [
+            [
+                'name' => 'Scopri',
+                'route' => 'discover'
+            ],
+            [
+                'name' => 'Contatti',
+                'route' => 'contacts'
+            ],
+            [
+                'name' => 'Mappa del sito',
+                'route' => 'map'
+            ],
+            [
+                'name' => 'Dove siamo',
+                'route' => 'location'
+            ],
+        ]
+    ];
+
+    return view('home', $data);
 })->name('home');
+
+Route::get('/discover', function () {
+    return view('discover');
+})->name('discover');
+
+Route::get('/contacts', function () {
+    return view('contacts');
+})->name('contacts');
+
+Route::get('/map', function () {
+    return view('map');
+})->name('map');
+
+Route::get('/location', function () {
+    return view('location');
+})->name('location');
